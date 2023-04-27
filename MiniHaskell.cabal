@@ -25,13 +25,21 @@ source-repository head
 
 library
   exposed-modules:
+      BoolClass
+      EitherClass
       Exp
       Lab2
       Lib
+      ListClass
       Main
+      MaybeClass
+      MyPrelude
+      NatClass
+      PairClass
       Parsing
       Printing
       REPLCommand
+      Sugar
   other-modules:
       Paths_MiniHaskell
   hs-source-dirs:
@@ -45,12 +53,20 @@ library
 executable MiniHaskell-exe
   main-is: Main.hs
   other-modules:
+      BoolClass
+      EitherClass
       Exp
       Lab2
       Lib
+      ListClass
+      MaybeClass
+      MyPrelude
+      NatClass
+      PairClass
       Parsing
       Printing
       REPLCommand
+      Sugar
       Paths_MiniHaskell
   hs-source-dirs:
       src
