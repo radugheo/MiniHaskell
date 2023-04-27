@@ -25,7 +25,13 @@ source-repository head
 
 library
   exposed-modules:
+      Exp
+      Lab2
       Lib
+      Main
+      Parsing
+      Printing
+      REPLCommand
   other-modules:
       Paths_MiniHaskell
   hs-source-dirs:
@@ -33,18 +39,26 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , parsec
   default-language: Haskell2010
 
 executable MiniHaskell-exe
   main-is: Main.hs
   other-modules:
+      Exp
+      Lab2
+      Lib
+      Parsing
+      Printing
+      REPLCommand
       Paths_MiniHaskell
   hs-source-dirs:
-      app
+      src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       MiniHaskell
     , base >=4.7 && <5
+    , parsec
   default-language: Haskell2010
 
 test-suite MiniHaskell-test
@@ -58,4 +72,5 @@ test-suite MiniHaskell-test
   build-depends:
       MiniHaskell
     , base >=4.7 && <5
+    , parsec
   default-language: Haskell2010
