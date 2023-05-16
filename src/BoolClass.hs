@@ -23,28 +23,28 @@ instance BoolClass Bool.Bool where
 
 -- | if-then-else
 ite :: BoolClass b => b -> a -> a -> a
-ite = undefined
+ite b t f = bool f t b
 
 -- >>> ite (true :: Bool.Bool) 1 2
 -- 1
 
 -- | Boolean "and"
 (&&) :: BoolClass b => b -> b -> b
-(&&) = undefined
+(&&) b c = ite b c false
 
 -- >>> true && false :: Bool.Bool
 -- False
 
 -- | Boolean "or",
 (||) :: BoolClass b => b -> b -> b
-(||) = undefined
+(||) b c = ite b true c
 
 -- >>> true || false :: Bool.Bool
 -- True
 
 -- | Boolean "not"
 not :: BoolClass b => b -> b
-not = undefined
+not b = ite b false true
 
 -- >>>  not true :: Bool.Bool
 -- False
@@ -52,8 +52,8 @@ not = undefined
 newtype CBool = CBool { getCBool :: forall a. a -> a -> a}
 
 instance BoolClass CBool where
-  true = undefined
-  false = undefined
+  false = CBool (\x y -> x)
+  true = CBool ( \x y -> y)
   bool f t b = getCBool b f t
 
 -- >>> ite (true :: CBool) 1 2
